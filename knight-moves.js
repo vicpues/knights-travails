@@ -21,14 +21,13 @@ function knightMoves(start, end) {
 
         const lastSquare = currentPath[currentPath.length - 1];
         if (isEqual(lastSquare, end)) break;
-        visited.set(toNumber(lastSquare), true);
 
         const reachable = getValidMoves(lastSquare);
-        const unvisited = reachable.filter(
-            (move) => !visited.has(toNumber(move)),
-        );
-        for (let move of unvisited) {
-            queue.enqueue([...currentPath, move]);
+        for (let move of reachable) {
+            if (!visited.has(toNumber(move))) {
+                visited.set(toNumber(move), true);
+                queue.enqueue([...currentPath, move]);
+            }
         }
     }
 
