@@ -56,7 +56,7 @@ function getValidMoves(fromSquare) {
 /** Returns `true` if the square is within the bounds of the board */
 function squareExists(square) {
     const xIsValid = square[0] >= 0 && square[0] < boardWidth;
-    const yIsValid = square[1] >= 0 && square[0] < boardHeight;
+    const yIsValid = square[1] >= 0 && square[1] < boardHeight;
     return xIsValid && yIsValid;
 }
 
